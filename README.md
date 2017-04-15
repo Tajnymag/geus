@@ -1,1 +1,1 @@
-# akcni-hra
+Jednoduchá Shoot em Up vzniklá jako semestrální práce prvního ročníku BI-PA2 na ČVUT FIT
