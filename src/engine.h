@@ -1,5 +1,5 @@
-#ifndef AKCNI_HRA_ENGINE_H
-#define AKCNI_HRA_ENGINE_H
+#ifndef GEUS_ENGINE_H
+#define GEUS_ENGINE_H
 
 class Engine {
 private:
@@ -12,4 +12,4 @@ public:
 };
 
 extern Engine engine;
-#endif //AKCNI_HRA_ENGINE_H
+#endif //GEUS_ENGINE_H

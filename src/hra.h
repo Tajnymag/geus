@@ -1,5 +1,5 @@
-#ifndef AKCNI_HRA_GAME_LOOP_MAIN_H
-#define AKCNI_HRA_GAME_LOOP_MAIN_H
+#ifndef GEUS_GAME_H
+#define GEUS_GAME_H
 
 class CHra {
 private:
@@ -10,4 +10,4 @@ public:
     int start();
 };
 
-#endif //AKCNI_HRA_GAME_LOOP_MAIN_H
+#endif //GEUS_GAME_H
