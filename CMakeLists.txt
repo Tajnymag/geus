@@ -3,7 +3,7 @@ project(geus)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES src/main.cpp src/hra.h src/hra.cpp src/engine.h src/engine.cpp)
+set(SOURCE_FILES src/main.cpp src/hra.h src/hra.cpp src/engine.h src/engine.cpp src/sprite.h src/sprite.cpp src/barva.h)
 add_executable(geus ${SOURCE_FILES})
 
 INCLUDE(FindPkgConfig)
