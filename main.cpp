@@ -1,4 +1,9 @@
-#include <ncurses/ncurses.h>
+#ifdef __MINGW64__ 
+    #include <ncurses/ncurses.h>
+#endif
+#ifdef __linux__
+    #include <ncurses.h>
+#endif
 #include "src/engine.h"
 
 using namespace std;
