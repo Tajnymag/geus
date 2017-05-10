@@ -3,7 +3,7 @@ project(geus)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES main.cpp src/sprite.h src/sprite.cpp src/engine.h src/engine.cpp)
+set(SOURCE_FILES main.cpp src/sprite.h src/sprite.cpp src/engine.h src/engine.cpp src/bullet.h src/bullet.cpp src/player.h src/player.cpp src/custom_ncurses.h src/geus.h src/geus.cpp src/colors.h src/colors.cpp src/enemy.h src/enemy.cpp)
 add_executable(geus ${SOURCE_FILES})
 
 find_package(Curses REQUIRED)

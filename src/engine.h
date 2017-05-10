@@ -1,31 +1,28 @@
 #ifndef GEUS_ENGINE_H
 #define GEUS_ENGINE_H
 
-#include <vector>
+#include <list>
 #include <memory>
 #include "sprite.h"
 
-class Engine {
+class EngineWrapper {
 private:
-	int m_sirka_okna;
-	int m_vyska_okna;
+	int m_screen_width;
+	int m_screen_height;
 
-	int m_obnovovaci_frekvence;
-
-	std::vector<Sprite*> m_seznam_gfx_objektu;
+	int m_refresh_rate;
 public:
-	Engine(const int cileny_framerate);
-	~Engine();
+	EngineWrapper(const int refresh_target);
+	~EngineWrapper();
 
-	int getSirkaOkna() const;
-	int getVyskaOkna() const;
+	int getScreenWidth() const;
+	int getScreenHeight() const;
 
-	void pridejGFXObjekt(Sprite* objekt);
-	void vykresliVse();
-	void smazNeviditelneObjekty();
-	void cekejFPS();
-	void ukonciNcurses();
-	void nactiVelikostOkna();
+	void drawAll(const int timer, Sprite* player_ref, std::list<Sprite*>& bullets_ref, std::list<Sprite*>& enemies_ref);
+	void deleteInvisibleObjects(std::list<Sprite*>& bullets_ref, std::list<Sprite*>& enemies_ref);
+	void waitFPS();
+	void endNcurses();
+	void loadScreenDimensions();
 };
 
 #endif //GEUS_ENGINE_H

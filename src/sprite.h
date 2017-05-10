@@ -3,44 +3,26 @@
 
 class Sprite {
 protected:
-	const char* m_reprezentujici_znak;
-	bool m_viditelny;
+	const char* m_visual_string;
+	bool m_visible;
 
-	int m_x;
-	int m_y;
-
-	double m_treni;
+	int m_update_freq;
+	double m_x;
+	double m_y;
 public:
-	double rychlostX;
-	double rychlostY;
-
-	Sprite(const char* reprezentujici_znak);
+	Sprite(const char* visual_string, const int beg_x = 0, const int beg_y = 0);
 	virtual ~Sprite();
 
-	virtual void vypocitejNovouPozici();
-	bool viditelny() const;
-	int poziceX() const;
-	int poziceY() const;
+	virtual void calculateNewPosition(const int timer);
+	bool getVisibility() const;
+	void setVisibility(const bool new_visibility);
+	int positionX() const;
+	int positionY() const;
 
-	virtual void vykresli();
-	virtual void handleKolizeOkna(const int sirka_okna, const int vyska_okna);
-};
+	bool overlapsWith(Sprite* other_sprite) const;
 
-class Hrac : public Sprite {
-private:
-	int power_up;
-public:
-	Hrac();
-	~Hrac();
-
-	void vykresli();
-	void handleKolizeOkna(const int sirka_okna, const int vyska_okna);
-};
-
-class Strela : public Sprite {
-public:
-	Strela(const char* reprezentujici_znak, const int poc_x, const int poc_y);
-	~Strela();
+	virtual void draw(const int timer);
+	virtual void handleWindowCollision(const int screen_width, const int screen_height);
 };
 
 #endif //GEUS_SPRITE_H

@@ -1,63 +1,72 @@
-#ifdef __MINGW64__ 
-    #include <ncurses/ncurses.h>
-#endif
-#ifdef __linux__
-    #include <ncurses.h>
-#endif
+#include "custom_ncurses.h"
 #include <thread>
 #include "sprite.h"
 #include "engine.h"
+#include "colors.h"
 
-Engine::Engine(const int cileny_framerate) {
-	m_obnovovaci_frekvence = 1000 / cileny_framerate;
+EngineWrapper::EngineWrapper(const int refresh_target) {
+	m_refresh_rate = 1000 / refresh_target;
 
 	initscr();
 	clear();
 	noecho();
 	curs_set(0);
 	cbreak();
+	keypad(stdscr, true);
 	nodelay(stdscr, true);
+	start_color();
+	initPairs();
 }
-Engine::~Engine() {
-	for (auto gfx_objekt : m_seznam_gfx_objektu) {
-		delete gfx_objekt;
-	}
+EngineWrapper::~EngineWrapper() {
 
-	m_seznam_gfx_objektu.clear();
 }
 
-int Engine::getSirkaOkna() const {
-	return m_sirka_okna;
+int EngineWrapper::getScreenWidth() const {
+	return m_screen_width;
 }
-int Engine::getVyskaOkna() const {
-	return m_vyska_okna;
+int EngineWrapper::getScreenHeight() const {
+	return m_screen_height;
 }
 
-void Engine::pridejGFXObjekt(Sprite* objekt) {
-	m_seznam_gfx_objektu.push_back(objekt);
-}
-void Engine::vykresliVse() {
+void EngineWrapper::drawAll(const int timer, Sprite* player_ref, std::list<Sprite*>& bullets_ref, std::list<Sprite*>& enemies_ref) {
 	clear();
-	for (auto gfx_objekt : m_seznam_gfx_objektu) {
-		gfx_objekt->handleKolizeOkna(m_sirka_okna, m_vyska_okna);
-		gfx_objekt->vykresli();
+
+	player_ref->handleWindowCollision(m_screen_width, m_screen_height);
+	player_ref->draw(timer);
+
+	for (auto bullet : bullets_ref) {
+		bullet->handleWindowCollision(m_screen_width, m_screen_height);
+		bullet->draw(timer);
 	}
+
+	for (auto enemy : enemies_ref) {
+		enemy->handleWindowCollision(m_screen_width, m_screen_height);
+		enemy->draw(timer);
+	}
+
 	//refresh();
 }
-void Engine::smazNeviditelneObjekty() {
-	for (int i = 0; i < (int)m_seznam_gfx_objektu.size(); ++i) {
-		if (!m_seznam_gfx_objektu[i]->viditelny()) {
-			delete m_seznam_gfx_objektu[i];
-			m_seznam_gfx_objektu.erase(m_seznam_gfx_objektu.begin() + i);
+void EngineWrapper::deleteInvisibleObjects(std::list<Sprite*>& bullets_ref, std::list<Sprite*>& enemies_ref) {
+	for (auto bullet = bullets_ref.begin(); bullet != bullets_ref.end(); ++bullet) {
+		if (!(*bullet)->getVisibility()) {
+			delete *bullet;
+			bullet = bullets_ref.erase(bullet);
+		}
+	}
+
+	for (auto enemy = enemies_ref.begin(); enemy != enemies_ref.end(); ++enemy) {
+		if (!(*enemy)->getVisibility()) {
+			delete *enemy;
+			enemy = enemies_ref.erase(enemy);
 		}
 	}
 }
-void Engine::cekejFPS() {
-	std::this_thread::sleep_for(std::chrono::milliseconds(m_obnovovaci_frekvence));
+void EngineWrapper::waitFPS() {
+	std::this_thread::sleep_for(std::chrono::milliseconds(m_refresh_rate));
 }
-void Engine::ukonciNcurses() {
+void EngineWrapper::endNcurses() {
 	endwin();
 }
-void Engine::nactiVelikostOkna() {
-	getmaxyx(stdscr, m_vyska_okna, m_sirka_okna);
+void EngineWrapper::loadScreenDimensions() {
+	getmaxyx(stdscr, m_screen_height, m_screen_width);
 }

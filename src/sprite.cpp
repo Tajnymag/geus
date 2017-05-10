@@ -1,111 +1,52 @@
-#ifdef __MINGW64__ 
-    #include <ncurses/ncurses.h>
-#endif
-#ifdef __linux__
-    #include <ncurses.h>
-#endif
-#include <cmath>
+#include "custom_ncurses.h"
 #include "sprite.h"
 
-Sprite::Sprite(const char* reprezentujici_znak) : m_reprezentujici_znak(reprezentujici_znak){
-	m_viditelny = true;
-	m_x = 0;
-	m_y = 0;
+Sprite::Sprite(const char* visual_string, const int beg_x, const int beg_y) : m_visual_string(visual_string){
+	m_visible = true;
 
-	rychlostX = 0;
-	rychlostY = 0;
-	m_treni = 0.2;
+	m_update_freq = 0;
+	m_x = beg_x;
+	m_y = beg_y;
 }
 Sprite::~Sprite() {}
 
-void Sprite::vypocitejNovouPozici() {
-	if (rychlostX > 0) {
-		m_x += ceil(rychlostX -= m_treni);
-	} else {
-		m_x += (rychlostX += m_treni);
-	}
-	if (rychlostY > 0) {
-		m_y += ceil(rychlostY -= m_treni);
-	} else {
-		m_y += (rychlostY += m_treni);
-	}
+void Sprite::calculateNewPosition(const int timer) {
+
 }
-bool Sprite::viditelny() const {
-	return m_viditelny;
+bool Sprite::getVisibility() const {
+	return m_visible;
 }
-int Sprite::poziceX() const {
+void Sprite::setVisibility(const bool new_visibility) {
+	m_visible = new_visibility;
+}
+int Sprite::positionX() const {
 	return m_x;
 }
-int Sprite::poziceY() const {
+int Sprite::positionY() const {
 	return m_y;
 }
 
-void Sprite::vykresli() {
-	vypocitejNovouPozici();
+bool Sprite::overlapsWith(Sprite* other_sprite) const {
+	return m_x == other_sprite->positionX() && m_y == other_sprite->positionY();
+}
 
-	if (m_viditelny) {
-		mvprintw(m_y, m_x, m_reprezentujici_znak);
+void Sprite::draw(const int timer) {
+	calculateNewPosition(timer);
+
+	if (m_visible) {
+		mvprintw(m_y, m_x, m_visual_string);
 	}
 }
-void Sprite::handleKolizeOkna(const int sirka_okna, const int vyska_okna) {
-	if (this->m_x >= sirka_okna) {
-		m_viditelny = false;
+void Sprite::handleWindowCollision(const int screen_width, const int screen_height) {
+	if (this->m_x >= screen_width) {
+		m_visible = false;
 	} else if (this->m_x < 0) {
-		m_viditelny = false;
+		m_visible = false;
 	}
 
-	if (this->m_y >= vyska_okna) {
-		m_viditelny = false;
+	if (this->m_y >= screen_height) {
+		m_visible = false;
 	} else if (this->m_y < 0) {
-		m_viditelny = false;
+		m_visible = false;
 	}
-}
-
-/** -------------------------------------------------------------------- **/
-
-Hrac::Hrac() : Sprite("") {
-	power_up = 0;
-	m_x = 1;
-	m_y = 1;
-}
-Hrac::~Hrac() {}
-void Hrac::vykresli() {
-	vypocitejNovouPozici();
-
-	if (m_viditelny) {
-		mvprintw(m_y - 1, m_x, ".");
-		mvprintw(m_y, m_x - 1, "/#\\");
-	}
-}
-void Hrac::handleKolizeOkna(const int sirka_okna, const int vyska_okna) {
-	if (this->m_x + 1 >= sirka_okna) {
-		this->m_x = sirka_okna - 2;
-		this->rychlostX *= -1;
-	} else if (this->m_x - 1 < 0) {
-		this->m_x = 1;
-		this->rychlostX *= -1;
-	}
-
-	if (this->m_y + 1 >= vyska_okna) {
-		this->m_y = vyska_okna - 1;
-		this->rychlostY *= -1;
-	} else if (this->m_y - 1 < 0) {
-		this->m_y = 1;
-		this->rychlostY *= 1;
-	}
-}
-
-/** -------------------------------------------------------------------- **/
-
-Strela::Strela(const char* reprezentujici_znak, const int poc_x, const int poc_y) : Sprite(reprezentujici_znak) {
-	m_viditelny = true;
-	m_x = poc_x;
-	m_y = poc_y;
-
-	rychlostX = 0;
-	rychlostY = -1;
-	m_treni = 0;
-}
-Strela::~Strela() {
-
 }
