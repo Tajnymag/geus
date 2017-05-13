@@ -1,19 +1,14 @@
 #include "sprite.h"
 #include "bullet.h"
 
-Bullet::Bullet(const char* visual_string, const int beg_x, const int beg_y) : Sprite(visual_string) {
+Bullet::Bullet(const char* visual_string, const int beg_x, const int beg_y, const int mov_x, const int mov_y) : Sprite(visual_string, beg_x, beg_y) {
 	m_visible = true;
 
-	m_update_freq = 1;
-	m_x = beg_x;
-	m_y = beg_y;
+	m_update_freq = 2;
+
+	m_direction_x = mov_x;
+	m_direction_y = mov_y;
 }
 Bullet::~Bullet() {
 
-}
-
-void Bullet::calculateNewPosition(const int timer) {
-	if (timer % m_update_freq == 0) {
-		m_y--;
-	}
 }

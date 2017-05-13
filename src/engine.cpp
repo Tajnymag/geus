@@ -28,7 +28,7 @@ int EngineWrapper::getScreenHeight() const {
 	return m_screen_height;
 }
 
-void EngineWrapper::drawAll(const int timer, Sprite* player_ref, std::list<Sprite*>& bullets_ref, std::list<Sprite*>& enemies_ref) {
+void EngineWrapper::drawAllObjects(const int timer, const int score, Sprite *player_ref, std::list<Sprite *> &bullets_ref, std::list<Sprite *> &enemies_ref, std::list<CPowerUp*>& power_ups_ref) {
 	clear();
 
 	player_ref->handleWindowCollision(m_screen_width, m_screen_height);
@@ -44,9 +44,13 @@ void EngineWrapper::drawAll(const int timer, Sprite* player_ref, std::list<Sprit
 		enemy->draw(timer);
 	}
 
+	for (auto power_up : power_ups_ref) {
+		power_up->draw(timer);
+	}
+
 	//refresh();
 }
-void EngineWrapper::deleteInvisibleObjects(std::list<Sprite*>& bullets_ref, std::list<Sprite*>& enemies_ref) {
+void EngineWrapper::deleteInvisibleObjects(std::list<Sprite*>& bullets_ref, std::list<Sprite*>& enemies_ref, std::list<CPowerUp*>& power_ups_ref) {
 	for (auto bullet = bullets_ref.begin(); bullet != bullets_ref.end(); ++bullet) {
 		if (!(*bullet)->getVisibility()) {
 			delete *bullet;
@@ -58,6 +62,13 @@ void EngineWrapper::deleteInvisibleObjects(std::list<Sprite*>& bullets_ref, std:
 		if (!(*enemy)->getVisibility()) {
 			delete *enemy;
 			enemy = enemies_ref.erase(enemy);
+		}
+	}
+
+	for (auto power_up = power_ups_ref.begin(); power_up != power_ups_ref.end(); ++power_up) {
+		if (!(*power_up)->getVisibility()) {
+			delete *power_up;
+			power_up = power_ups_ref.erase(power_up);
 		}
 	}
 }

@@ -3,9 +3,12 @@
 #include "sprite.h"
 #include "player.h"
 #include "colors.h"
+#include "bullet.h"
+#include "bullet_huge.h"
+#include "bullet_fast.h"
 
 Player::Player(const int beg_x, const int beg_y) : Sprite("") {
-	power_up = 0;
+	power_up = 3;
 
 	m_x = beg_x;
 	m_y = beg_y;
@@ -32,6 +35,28 @@ void Player::calculateNewPosition(const int timer) {
 		m_y += round(speedY += (m_drag * 2));
 	}
 }
+
+void Player::shoot(std::list<Sprite *> &bullets_ref) {
+	switch (power_up) {
+		case 0:
+			bullets_ref.push_back(new Bullet("|", m_x, m_y - 1));
+			break;
+		case 1:
+			bullets_ref.push_back(new Bullet("\\", m_x, m_y - 1, -1));
+			bullets_ref.push_back(new Bullet("|", m_x, m_y - 1));
+			bullets_ref.push_back(new Bullet("/", m_x, m_y - 1, 1));
+			break;
+		case 2:
+			bullets_ref.push_back(new HugeBullet(m_x, m_y - 1));
+			break;
+		case 3:
+			bullets_ref.push_back(new FastBullet(m_x, m_y - 1));
+			break;
+		default:
+			break;
+	}
+}
+
 void Player::draw(const int timer) {
 	calculateNewPosition(timer);
 
@@ -41,6 +66,9 @@ void Player::draw(const int timer) {
 		mvprintw(m_y, m_x - 1, "/#\\");
 		resetColor(HRAC);
 	}
+}
+void Player::setPowerUp(const int power_up_index) {
+	power_up = power_up_index;
 }
 void Player::handleWindowCollision(const int screen_width, const int screen_height) {
 	if (this->m_x + 1 >= screen_width) {

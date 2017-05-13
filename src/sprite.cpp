@@ -11,7 +11,10 @@ Sprite::Sprite(const char* visual_string, const int beg_x, const int beg_y) : m_
 Sprite::~Sprite() {}
 
 void Sprite::calculateNewPosition(const int timer) {
-
+	if (timer % m_update_freq == 0) {
+		m_x += m_direction_x;
+		m_y += m_direction_y;
+	}
 }
 bool Sprite::getVisibility() const {
 	return m_visible;
