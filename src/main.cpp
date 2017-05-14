@@ -1,5 +1,5 @@
 #include <iostream>
-#include "src/geus.h"
+#include "geus.h"
 
 using namespace std;
 
