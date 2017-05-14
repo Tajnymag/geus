@@ -48,6 +48,8 @@ void EngineWrapper::drawAllObjects(const int timer, const int score, Sprite *pla
 		power_up->draw(timer);
 	}
 
+	mvprintw(0, m_screen_width - 3, "%d", score);
+
 	//refresh();
 }
 void EngineWrapper::deleteInvisibleObjects(std::list<Sprite*>& bullets_ref, std::list<Sprite*>& enemies_ref, std::list<CPowerUp*>& power_ups_ref) {

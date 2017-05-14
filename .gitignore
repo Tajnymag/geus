@@ -1,6 +1,9 @@
 # CMAKE-Build files
 cmake-build-debug*
 
+# doxygen files
+doxygen/
+
 # Compiled Object files
 *.slo
 *.lo

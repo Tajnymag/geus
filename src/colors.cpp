@@ -2,83 +2,53 @@
 #include "colors.h"
 
 void initPairs() {
-	init_pair(0, COLOR_BLACK, COLOR_BLACK);
-	init_pair(1, COLOR_RED, COLOR_BLACK);
-	init_pair(2, COLOR_GREEN, COLOR_BLACK);
-	init_pair(3, COLOR_YELLOW, COLOR_BLACK);
-	init_pair(4, COLOR_BLUE, COLOR_BLACK);
-	init_pair(5, COLOR_MAGENTA, COLOR_BLACK);
-	init_pair(6, COLOR_CYAN, COLOR_BLACK);
-	init_pair(7, COLOR_WHITE, COLOR_BLACK);
-	init_pair(8, COLOR_BLUE, COLOR_WHITE);
+	init_pair(5, COLOR_BLUE, COLOR_WHITE); ///< Colors of player's rocket
+	init_pair(1, COLOR_GREEN, COLOR_BLACK); ///< Colors of HugeBullets power-up
+	init_pair(2, COLOR_RED, COLOR_BLACK); ///< Colors of FastBullets power-up
+	init_pair(3, COLOR_CYAN, COLOR_BLACK); ///< Colors of TripleShot power-up
+	init_pair(4, COLOR_YELLOW, COLOR_BLUE); ///< Colors of ClassicBullets power-down
 }
 
 void setColor(color COLOR) {
 	switch (COLOR) {
-		case BLACK:
-			attron(COLOR_PAIR(0));
-			break;
-		case RED:
-			attron(COLOR_PAIR(1));
-			break;
-		case GREEN:
-			attron(COLOR_PAIR(2));
-			break;
-		case YELLOW:
-			attron(COLOR_PAIR(3));
-			break;
-		case BLUE:
-			attron(COLOR_PAIR(4));
-			break;
-		case MAGENTA:
+		case PLAYER:
 			attron(COLOR_PAIR(5));
 			break;
-		case CYAN:
-			attron(COLOR_PAIR(6));
+		case HPOWER:
+			attron(COLOR_PAIR(1));
 			break;
-		case WHITE:
-			attron(COLOR_PAIR(7));
+		case FPOWER:
+			attron(COLOR_PAIR(2));
 			break;
-		case HRAC:
-			attron(COLOR_PAIR(8));
+		case TPOWER:
+			attron(COLOR_PAIR(3));
+			break;
+		case CPOWER:
+			attron(COLOR_PAIR(4));
 			break;
 		default:
-			attron(COLOR_PAIR(0));
 			break;
 	}
 }
 
 void resetColor(color COLOR) {
 	switch (COLOR) {
-		case BLACK:
-			attroff(COLOR_PAIR(0));
-			break;
-		case RED:
-			attroff(COLOR_PAIR(1));
-			break;
-		case GREEN:
-			attroff(COLOR_PAIR(2));
-			break;
-		case YELLOW:
-			attroff(COLOR_PAIR(3));
-			break;
-		case BLUE:
-			attroff(COLOR_PAIR(4));
-			break;
-		case MAGENTA:
+		case PLAYER:
 			attroff(COLOR_PAIR(5));
 			break;
-		case CYAN:
-			attroff(COLOR_PAIR(6));
+		case HPOWER:
+			attroff(COLOR_PAIR(1));
 			break;
-		case WHITE:
-			attroff(COLOR_PAIR(7));
+		case FPOWER:
+			attroff(COLOR_PAIR(2));
 			break;
-		case HRAC:
-			attroff(COLOR_PAIR(8));
+		case TPOWER:
+			attroff(COLOR_PAIR(3));
+			break;
+		case CPOWER:
+			attroff(COLOR_PAIR(4));
 			break;
 		default:
-			attroff(COLOR_PAIR(0));
 			break;
 	}
 }

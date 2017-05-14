@@ -6,5 +6,5 @@ then
 	mv tmp "$1"
 	echo "File has been prepared for the game"
 else
-	echo "Couldn't load the file."
+	echo "Couldn't load the file, so I created it :)"
 fi

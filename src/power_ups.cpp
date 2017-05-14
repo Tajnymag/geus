@@ -14,9 +14,9 @@ int CPowerUp::getIndex() const {
 }
 void CPowerUp::draw(const int timer) {
 	if (m_visible) {
-		setColor(CYAN);
+		setColor(CPOWER);
 		mvprintw(m_y, m_x, m_visual_string);
-		resetColor(CYAN);
+		resetColor(CPOWER);
 	}
 }
 
@@ -29,9 +29,9 @@ TriPowerUp::~TriPowerUp() {
 }
 void TriPowerUp::draw(const int timer) {
 	if (m_visible) {
-		setColor(YELLOW);
+		setColor(TPOWER);
 		mvprintw(m_y, m_x, m_visual_string);
-		resetColor(YELLOW);
+		resetColor(TPOWER);
 	}
 }
 
@@ -44,9 +44,9 @@ HBPowerUp::~HBPowerUp() {
 }
 void HBPowerUp::draw(const int timer) {
 	if (m_visible) {
-		setColor(GREEN);
+		setColor(HPOWER);
 		mvprintw(m_y, m_x, m_visual_string);
-		resetColor(GREEN);
+		resetColor(HPOWER);
 	}
 }
 
@@ -59,8 +59,8 @@ FPowerUp::~FPowerUp() {
 }
 void FPowerUp::draw(const int timer) {
 	if (m_visible) {
-		setColor(MAGENTA);
+		setColor(FPOWER);
 		mvprintw(m_y, m_x, m_visual_string);
-		resetColor(MAGENTA);
+		resetColor(FPOWER);
 	}
 }

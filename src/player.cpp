@@ -8,7 +8,7 @@
 #include "bullet_fast.h"
 
 Player::Player(const int beg_x, const int beg_y) : Sprite("") {
-	power_up = 3;
+	power_up = 0;
 
 	m_x = beg_x;
 	m_y = beg_y;
@@ -61,10 +61,10 @@ void Player::draw(const int timer) {
 	calculateNewPosition(timer);
 
 	if (m_visible) {
-		setColor(HRAC);
+		setColor(PLAYER);
 		mvprintw(m_y - 1, m_x, ".");
 		mvprintw(m_y, m_x - 1, "/#\\");
-		resetColor(HRAC);
+		resetColor(PLAYER);
 	}
 }
 void Player::setPowerUp(const int power_up_index) {

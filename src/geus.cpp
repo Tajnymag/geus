@@ -1,14 +1,12 @@
 #include "custom_ncurses.h"
 #include <fstream>
 #include <cstring>
-#include <zconf.h>
 #include "geus.h"
-#include "bullet.h"
 #include "enemy.h"
-#include "power_ups.h"
 
 Geus::Geus() : engine(30) {
-	player = new Player(20, 20);
+	engine.loadScreenDimensions();
+	player = new Player(engine.getScreenWidth() / 2, engine.getScreenHeight() - 2);
 
 	score = 0;
 }
@@ -25,6 +23,11 @@ Geus::~Geus() {
 		delete bullets.front();
 		bullets.pop_front();
 	}
+
+	while (!power_ups.empty()) {
+		delete power_ups.front();
+		power_ups.pop_front();
+	}
 }
 
 int Geus::play() {
@@ -37,11 +40,11 @@ int Geus::play() {
 	while (is_running) {
 		engine.loadScreenDimensions();
 
-		if (timer % 41 == 0) {
+		if (timer % 40 == 0) {
 			loadLineOfEnemies();
 		}
 
-		handleInput(player);
+		handleInput();
 
 		checkDamage();
 
@@ -49,7 +52,7 @@ int Geus::play() {
 		engine.drawAllObjects(timer, score, player, bullets, enemies, power_ups);
 		engine.waitFPS();
 
-		timer = ++timer % INT_MAX;
+		timer = ++timer % 100;
 	}
 
 	engine.endNcurses();
@@ -57,7 +60,7 @@ int Geus::play() {
 	return 0;
 }
 
-void Geus::handleInput(Player *player) {
+void Geus::handleInput() {
 	int key = getch();
 
 	switch (key) {
@@ -86,7 +89,7 @@ void Geus::handleInput(Player *player) {
 			break;
 
 		case 27:
-			is_running = false;
+			endOfTheGameScreen("Thanks for playing the game");
 			break;
 		default:
 			break;
@@ -185,11 +188,11 @@ void Geus::checkDamage() {
 		}
 		if (enemy->overlapsWith(player)) {
 			player->setVisibility(false);
-			endOfTheGameScreen();
+			endOfTheGameScreen("Game Over");
 		}
 
 		if (enemy->positionY() >= engine.getScreenHeight()) {
-			endOfTheGameScreen();
+			endOfTheGameScreen("Game Over");
 		};
 	}
 
@@ -200,9 +203,7 @@ void Geus::checkDamage() {
 		}
 	}
 }
-void Geus::endOfTheGameScreen() {
-	const char* message = "Game Over";
-
+void Geus::endOfTheGameScreen(const char* message) {
 	if (score > highest_score) {
 		highest_score = score;
 		saveHighestScore();
