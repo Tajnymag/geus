@@ -1,6 +1,6 @@
 BINARY = geus
 CC = g++
-CFGLAGS = -std=c++11 -O2
+CFLAGS = -std=c++11 -O2
 LIBS = -lncurses
 
 SRC = $(wildcard src/*.cpp)
