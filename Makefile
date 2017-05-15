@@ -3,8 +3,8 @@ CC = g++
 CFLAGS = -std=c++11 -O2
 LIBS = -lncurses
 
-SRC = $(wildcard src/*.cpp)
-OBJ = $(SRC:.cpp=.o)
+SRC=$(wildcard src/*.cpp)
+OBJ=$(SRC:.cpp=.o)
 
 .PHONY: maps
 .PHONY: doc
@@ -28,5 +28,9 @@ clean-all:
 	rm -f $(OBJ) $(BINARY) highest_score.txt positions.txt
 	rm -rf doxygen/
 
+
 $(BINARY): $(OBJ)
-	$(CC) $(CFLAGS) $^ $(LIBS) -o $(BINARY)
+	$(CC) $(CFLAGS) $(OBJ) $(LIBS) -o $@
+
+.cpp.o:
+	$(CC) -c $(CFLAGS) $< $(LIBS) -o $@
