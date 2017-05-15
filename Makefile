@@ -33,4 +33,4 @@ $(BINARY): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) $(LIBS) -o $(BINARY)
 
 .cpp.o:
-	$(CC) -c $(CFLAGS) $< $(LIBS) -o $@
+	$(CC) -c $(CFLAGS) $< -o $@
