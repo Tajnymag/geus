@@ -13,12 +13,12 @@ A very simple Shoot em Up game created as a midterm project of the BI-PA2 subjec
     
 * you should be able to run the game by issuing
 
-        ./geus
+        make run
     
 **Documentation**
 
 The project uses a Doxygen to generate it's documentation dynamically. To generate the documentation for yourself, issue
 
-    doxygen doxygenConfig
+    make doc
 
 If the documentation was generated correctly, you should be able to access it locally at [geus/doxygen/html/index.html](doxygen/html/index.html)
