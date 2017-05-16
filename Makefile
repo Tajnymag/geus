@@ -6,15 +6,15 @@ LIBS = -lncurses
 SRC=$(wildcard src/*.cpp)
 OBJ=$(SRC:.cpp=.o)
 
-.PHONY: all
 .PHONY: compile
+.PHONY: all
 .PHONY: run
 .PHONY: reset
 .PHONY: doc
 .PHONY: clean
 
-all: $(BINARY)
-compile: $(BINARY)
+compile: $(BINARY) reset
+all: $(BINARY) doc reset
 run:
 	./$(BINARY)
 reset:
@@ -22,7 +22,7 @@ reset:
 doc:
 	doxygen doxygenConfig
 clean:
-	rm -f $(OBJ) $(BINARY) #highest_score.txt positions.txt
+	rm -f $(OBJ) $(BINARY) highest_score.txt positions.txt
 	rm -rf doc/
 
 
