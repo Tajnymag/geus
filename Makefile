@@ -23,7 +23,7 @@ doc:
 	doxygen doxygenConfig
 clean:
 	rm -f $(OBJ) $(BINARY) #highest_score.txt positions.txt
-	#rm -rf doc/
+	rm -rf doc/
 
 
 $(BINARY): $(OBJ)

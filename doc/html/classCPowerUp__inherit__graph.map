@@ -1,6 +1,0 @@
-<map id="CPowerUp" name="CPowerUp">
-<area shape="rect" id="node3" href="$classFPowerUp.html" title="FPowerUp" alt="" coords="5,155,92,181"/>
-<area shape="rect" id="node4" href="$classHBPowerUp.html" title="HBPowerUp" alt="" coords="117,155,215,181"/>
-<area shape="rect" id="node5" href="$classTriPowerUp.html" title="TriPowerUp" alt="" coords="240,155,337,181"/>
-<area shape="rect" id="node2" href="$classSprite.html" title="Sprite" alt="" coords="136,5,196,32"/>
-</map>
