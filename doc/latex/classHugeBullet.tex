@@ -1,0 +1,121 @@
+\hypertarget{classHugeBullet}{}\section{Huge\+Bullet Class Reference}
+\label{classHugeBullet}\index{Huge\+Bullet@{Huge\+Bullet}}
+
+
+{\ttfamily \#include $<$bullet\+\_\+huge.\+h$>$}
+
+
+
+Inheritance diagram for Huge\+Bullet\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=151pt]{classHugeBullet__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Huge\+Bullet\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=151pt]{classHugeBullet__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classHugeBullet_a5a486a2079e6e7bd9d97bd40c68c5f85}{Huge\+Bullet} (const int beg\+\_\+x, const int beg\+\_\+y, const int mom\+\_\+x=0, const int mom\+\_\+y=-\/1)
+\item 
+\hyperlink{classHugeBullet_abdd0ba93e0edc39a7ad94a7f5f38a138}{$\sim$\+Huge\+Bullet} ()
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+bool \hyperlink{classHugeBullet_a6a617486739894eacb79711c8a24bb9d}{overlaps\+With} (\hyperlink{classSprite}{Sprite} $\ast$other\+\_\+sprite) const
+\item 
+void \hyperlink{classHugeBullet_a0c4f11d7d892b683ecf601cdc37c6ebf}{draw} (const int timer)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+This class serves purpose of being the default bullet for \hyperlink{classHBPowerUp}{H\+B\+Power\+Up}. Compared to basic \hyperlink{classBullet}{Bullet}, it is increased in size by a factor of three. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classHugeBullet_a5a486a2079e6e7bd9d97bd40c68c5f85}\label{classHugeBullet_a5a486a2079e6e7bd9d97bd40c68c5f85}} 
+\index{Huge\+Bullet@{Huge\+Bullet}!Huge\+Bullet@{Huge\+Bullet}}
+\index{Huge\+Bullet@{Huge\+Bullet}!Huge\+Bullet@{Huge\+Bullet}}
+\subsubsection{\texorpdfstring{Huge\+Bullet()}{HugeBullet()}}
+{\footnotesize\ttfamily Huge\+Bullet\+::\+Huge\+Bullet (\begin{DoxyParamCaption}\item[{const int}]{beg\+\_\+x,  }\item[{const int}]{beg\+\_\+y,  }\item[{const int}]{mom\+\_\+x = {\ttfamily 0},  }\item[{const int}]{mom\+\_\+y = {\ttfamily -\/1} }\end{DoxyParamCaption})}
+
+Creates a new instance of a large sized bullet \begin{DoxyNote}{Note}
+Compared to \hyperlink{classBullet}{Bullet}, it doesn\textquotesingle{}t use a visual\+\_\+string parameter as it is hardcoded into the class.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em beg\+\_\+x} & Starting point on X axis for the bullet \\
+\hline
+{\em beg\+\_\+y} & Starting point on Y axis for the bullet \\
+\hline
+{\em mom\+\_\+x} & Momentum of the bullet on X axis \\
+\hline
+{\em mom\+\_\+y} & Momentum of the bullet on Y axis \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classHugeBullet_abdd0ba93e0edc39a7ad94a7f5f38a138}\label{classHugeBullet_abdd0ba93e0edc39a7ad94a7f5f38a138}} 
+\index{Huge\+Bullet@{Huge\+Bullet}!````~Huge\+Bullet@{$\sim$\+Huge\+Bullet}}
+\index{````~Huge\+Bullet@{$\sim$\+Huge\+Bullet}!Huge\+Bullet@{Huge\+Bullet}}
+\subsubsection{\texorpdfstring{$\sim$\+Huge\+Bullet()}{~HugeBullet()}}
+{\footnotesize\ttfamily Huge\+Bullet\+::$\sim$\+Huge\+Bullet (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default destructor. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classHugeBullet_a0c4f11d7d892b683ecf601cdc37c6ebf}\label{classHugeBullet_a0c4f11d7d892b683ecf601cdc37c6ebf}} 
+\index{Huge\+Bullet@{Huge\+Bullet}!draw@{draw}}
+\index{draw@{draw}!Huge\+Bullet@{Huge\+Bullet}}
+\subsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Huge\+Bullet\+::draw (\begin{DoxyParamCaption}\item[{const int}]{timer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Draws itself onto the standard canvas.
+
+
+\begin{DoxyParams}{Parameters}
+{\em timer} & Current state of the games timer \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classSprite_aa41512617e8a1626bade15cbbdfb3f79}{Sprite}.
+
+\mbox{\Hypertarget{classHugeBullet_a6a617486739894eacb79711c8a24bb9d}\label{classHugeBullet_a6a617486739894eacb79711c8a24bb9d}} 
+\index{Huge\+Bullet@{Huge\+Bullet}!overlaps\+With@{overlaps\+With}}
+\index{overlaps\+With@{overlaps\+With}!Huge\+Bullet@{Huge\+Bullet}}
+\subsubsection{\texorpdfstring{overlaps\+With()}{overlapsWith()}}
+{\footnotesize\ttfamily bool Huge\+Bullet\+::overlaps\+With (\begin{DoxyParamCaption}\item[{\hyperlink{classSprite}{Sprite} $\ast$}]{other\+\_\+sprite }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Checks, whether it doesn\textquotesingle{}t overlap with given coordinates \begin{DoxyNote}{Note}
+Yes, it doesn\textquotesingle{}t check overlapping of rectangels but rather only a single block.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em other\+\_\+sprite} & Different graphical element of whose coordinates we want to compare ourselves with \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true on found overlap, false otherwise 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classSprite_a631928eb8d8fabce4f888c6ed76c0885}{Sprite}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{bullet__huge_8h}{bullet\+\_\+huge.\+h}\item 
+\hyperlink{bullet__huge_8cpp}{bullet\+\_\+huge.\+cpp}\end{DoxyCompactItemize}

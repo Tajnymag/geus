@@ -1,32 +1,29 @@
-BINARY = geus
+BINARY = lukasma5
 CC = g++
-CFLAGS = -std=c++11 -O3
+CFLAGS = -Wall -pedantic -Wno-long-long -O0 -ggdb -std=c++11
 LIBS = -lncurses
 
 SRC=$(wildcard src/*.cpp)
 OBJ=$(SRC:.cpp=.o)
 
+.PHONY: all
+.PHONY: compile
+.PHONY: run
 .PHONY: reset
 .PHONY: doc
-.PHONY: install
-.PHONY: uninstall
-.PHONY: clean-build-files
-.PHONY: clean-all
+.PHONY: clean
 
-default: $(BINARY)
+all: $(BINARY)
+compile: $(BINARY)
+run:
+	./$(BINARY)
 reset:
 	cp default_files/* .
 doc:
 	doxygen doxygenConfig
-install:
-	cp $(BINARY) /usr/bin
-uninstall:
-	rm /usr/bin/$(BINARY)
 clean:
-	rm -f $(OBJ) $(BINARY)
-clean-all:
-	rm -f $(OBJ) $(BINARY) highest_score.txt positions.txt
-	rm -rf doxygen/
+	rm -f $(OBJ) $(BINARY) #highest_score.txt positions.txt
+	#rm -rf doc/
 
 
 $(BINARY): $(OBJ)

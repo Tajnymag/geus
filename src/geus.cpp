@@ -35,7 +35,7 @@ int Geus::play() {
 	loadHighestScore();
 
 	is_running = true;
-	int timer;
+	int timer = 0;
 
 	while (is_running) {
 		engine.loadScreenDimensions();
@@ -52,7 +52,8 @@ int Geus::play() {
 		engine.drawAllObjects(timer, score, player, bullets, enemies, power_ups);
 		engine.waitFPS();
 
-		timer = ++timer % 100;
+		timer = timer % 100;
+		timer++;
 	}
 
 	engine.endNcurses();

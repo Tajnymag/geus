@@ -1,0 +1,290 @@
+\hypertarget{classGeus}{}\section{Geus Class Reference}
+\label{classGeus}\index{Geus@{Geus}}
+
+
+{\ttfamily \#include $<$geus.\+h$>$}
+
+
+
+Collaboration diagram for Geus\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{classGeus__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classGeus_a21852cfcb9229ce95773f15cf1e8620e}{Geus} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\hyperlink{classGeus_ac6a5d703343da401f4af4c9eb89a5ae8}{$\sim$\+Geus} ()
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+int \hyperlink{classGeus_af62245e002ed29f52e4ffff6372f4da9}{play} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classGeus_ac562cba645d11b3ead596a40f2138ae8}{handle\+Input} ()
+\begin{DoxyCompactList}\small\item\em Function used to check the currently pressed key and link it to a corresponding action. \end{DoxyCompactList}\item 
+void \hyperlink{classGeus_a203be0301bb8cf927691e104184a9d1a}{load\+Enemy\+Positions} (const char $\ast$file\+\_\+path)
+\item 
+void \hyperlink{classGeus_a2992ad2cc9b243e28a0f344721ac217d}{load\+Line\+Of\+Enemies} ()
+\item 
+void \hyperlink{classGeus_a9543c5d421c0a5926bfb16d59bbcab12}{random\+Drop\+Power\+Up} (const int pos\+\_\+x, const int pos\+\_\+y)
+\begin{DoxyCompactList}\small\item\em Drops a random power-\/up based on hardcoded probability. \end{DoxyCompactList}\item 
+void \hyperlink{classGeus_a43863016c0866aae15e64994c6f4f45f}{load\+Highest\+Score} ()
+\begin{DoxyCompactList}\small\item\em Loads the highest achieved score from a hardcoded file. \end{DoxyCompactList}\item 
+void \hyperlink{classGeus_ac39cd26c767b6508030a3a203de80ade}{save\+Highest\+Score} ()
+\begin{DoxyCompactList}\small\item\em Saves the current score as the new Highest Score to a hardcoded file. \end{DoxyCompactList}\item 
+void \hyperlink{classGeus_a53d54fe777e1eeecbfcd64c852b5322a}{check\+Damage} ()
+\begin{DoxyCompactList}\small\item\em Iterates through all of our objects and maps their overlaps between each other to corresponding actions. \end{DoxyCompactList}\item 
+void \hyperlink{classGeus_a1325fd4454fd45be398e140b3bcc1120}{end\+Of\+The\+Game\+Screen} (const char $\ast$message)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classEngineWrapper}{Engine\+Wrapper} \hyperlink{classGeus_a8b87135ab61453d81b02b97d73033c92}{engine}
+\begin{DoxyCompactList}\small\item\em Instance of the engine. \end{DoxyCompactList}\item 
+\hyperlink{classPlayer}{Player} $\ast$ \hyperlink{classGeus_a19106a3619fcb55de45bc8adac57496a}{player} = N\+U\+LL
+\begin{DoxyCompactList}\small\item\em Single instance of the player\textquotesingle{}s object. \end{DoxyCompactList}\item 
+std\+::list$<$ \hyperlink{classSprite}{Sprite} $\ast$ $>$ \hyperlink{classGeus_a182b15c0dcf2def10eb8f084b4e6ce4f}{enemies}
+\begin{DoxyCompactList}\small\item\em List with pointers to all visible enemies. \end{DoxyCompactList}\item 
+std\+::list$<$ \hyperlink{classSprite}{Sprite} $\ast$ $>$ \hyperlink{classGeus_a48aec553db9de3be3f1cbf0a8d14a1c8}{bullets}
+\begin{DoxyCompactList}\small\item\em List with pointers to all visible bullets. \end{DoxyCompactList}\item 
+std\+::list$<$ \hyperlink{classCPowerUp}{C\+Power\+Up} $\ast$ $>$ \hyperlink{classGeus_a797d5c7822b9b1e1eb6c46fca93551a3}{power\+\_\+ups}
+\item 
+std\+::list$<$ int $>$ \hyperlink{classGeus_a2ecbe7a824604651a704e0fff0a5c839}{enemy\+\_\+positions}
+\item 
+int \hyperlink{classGeus_a8b9366af73b19d4c2383b42e8c5cae7f}{highest\+\_\+score}
+\begin{DoxyCompactList}\small\item\em Highest score loaded from a file. \end{DoxyCompactList}\item 
+int \hyperlink{classGeus_a2ad271a665a5442697299b756cfee290}{score}
+\begin{DoxyCompactList}\small\item\em Current score. \end{DoxyCompactList}\item 
+bool \hyperlink{classGeus_aeb4cc6648c47d83e07340b39c85b62b3}{is\+\_\+running}
+\begin{DoxyCompactList}\small\item\em A boolean variable controlling the main game loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class serves as the main game class. Here is where all the magic happens. Some of the work is offloaded to the Engine.\+h. That\textquotesingle{}s done solely to make the corresponding .cpp file for this class smaller and a bit easier to read. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classGeus_a21852cfcb9229ce95773f15cf1e8620e}\label{classGeus_a21852cfcb9229ce95773f15cf1e8620e}} 
+\index{Geus@{Geus}!Geus@{Geus}}
+\index{Geus@{Geus}!Geus@{Geus}}
+\subsubsection{\texorpdfstring{Geus()}{Geus()}}
+{\footnotesize\ttfamily Geus\+::\+Geus (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default constructor. 
+
+On creation, creates an instance of \hyperlink{classEngineWrapper}{Engine\+Wrapper} (engine), calculates terminal size, creates an instance of \hyperlink{classPlayer}{Player}, resets current score. \mbox{\Hypertarget{classGeus_ac6a5d703343da401f4af4c9eb89a5ae8}\label{classGeus_ac6a5d703343da401f4af4c9eb89a5ae8}} 
+\index{Geus@{Geus}!````~Geus@{$\sim$\+Geus}}
+\index{````~Geus@{$\sim$\+Geus}!Geus@{Geus}}
+\subsubsection{\texorpdfstring{$\sim$\+Geus()}{~Geus()}}
+{\footnotesize\ttfamily Geus\+::$\sim$\+Geus (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default destructor. 
+
+Deletes and cleans out three lists of pointers + player 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classGeus_a53d54fe777e1eeecbfcd64c852b5322a}\label{classGeus_a53d54fe777e1eeecbfcd64c852b5322a}} 
+\index{Geus@{Geus}!check\+Damage@{check\+Damage}}
+\index{check\+Damage@{check\+Damage}!Geus@{Geus}}
+\subsubsection{\texorpdfstring{check\+Damage()}{checkDamage()}}
+{\footnotesize\ttfamily void Geus\+::check\+Damage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Iterates through all of our objects and maps their overlaps between each other to corresponding actions. 
+
+\mbox{\Hypertarget{classGeus_a1325fd4454fd45be398e140b3bcc1120}\label{classGeus_a1325fd4454fd45be398e140b3bcc1120}} 
+\index{Geus@{Geus}!end\+Of\+The\+Game\+Screen@{end\+Of\+The\+Game\+Screen}}
+\index{end\+Of\+The\+Game\+Screen@{end\+Of\+The\+Game\+Screen}!Geus@{Geus}}
+\subsubsection{\texorpdfstring{end\+Of\+The\+Game\+Screen()}{endOfTheGameScreen()}}
+{\footnotesize\ttfamily void Geus\+::end\+Of\+The\+Game\+Screen (\begin{DoxyParamCaption}\item[{const char $\ast$}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Displays a message with current score and highest score.
+
+It\textquotesingle{}s being used the last message of the game and can be opened with either a death of the player or press of the E\+SC key
+
+It automatically saves the current score if it\textquotesingle{}s higher than the highest score.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & Message to be displayed \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGeus_ac562cba645d11b3ead596a40f2138ae8}\label{classGeus_ac562cba645d11b3ead596a40f2138ae8}} 
+\index{Geus@{Geus}!handle\+Input@{handle\+Input}}
+\index{handle\+Input@{handle\+Input}!Geus@{Geus}}
+\subsubsection{\texorpdfstring{handle\+Input()}{handleInput()}}
+{\footnotesize\ttfamily void Geus\+::handle\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Function used to check the currently pressed key and link it to a corresponding action. 
+
+\mbox{\Hypertarget{classGeus_a203be0301bb8cf927691e104184a9d1a}\label{classGeus_a203be0301bb8cf927691e104184a9d1a}} 
+\index{Geus@{Geus}!load\+Enemy\+Positions@{load\+Enemy\+Positions}}
+\index{load\+Enemy\+Positions@{load\+Enemy\+Positions}!Geus@{Geus}}
+\subsubsection{\texorpdfstring{load\+Enemy\+Positions()}{loadEnemyPositions()}}
+{\footnotesize\ttfamily void Geus\+::load\+Enemy\+Positions (\begin{DoxyParamCaption}\item[{const char $\ast$}]{file\+\_\+path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Function which loads enemy positions from a given file and saves it to our list with enemy positions. \begin{DoxyNote}{Note}
+In the current state, the file has to exist and be accessible to the program, otherwise an exception is thrown.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em file\+\_\+path} & Path to a file with enemy positions \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGeus_a43863016c0866aae15e64994c6f4f45f}\label{classGeus_a43863016c0866aae15e64994c6f4f45f}} 
+\index{Geus@{Geus}!load\+Highest\+Score@{load\+Highest\+Score}}
+\index{load\+Highest\+Score@{load\+Highest\+Score}!Geus@{Geus}}
+\subsubsection{\texorpdfstring{load\+Highest\+Score()}{loadHighestScore()}}
+{\footnotesize\ttfamily void Geus\+::load\+Highest\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Loads the highest achieved score from a hardcoded file. 
+
+\mbox{\Hypertarget{classGeus_a2992ad2cc9b243e28a0f344721ac217d}\label{classGeus_a2992ad2cc9b243e28a0f344721ac217d}} 
+\index{Geus@{Geus}!load\+Line\+Of\+Enemies@{load\+Line\+Of\+Enemies}}
+\index{load\+Line\+Of\+Enemies@{load\+Line\+Of\+Enemies}!Geus@{Geus}}
+\subsubsection{\texorpdfstring{load\+Line\+Of\+Enemies()}{loadLineOfEnemies()}}
+{\footnotesize\ttfamily void Geus\+::load\+Line\+Of\+Enemies (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Loads one line of enemies from our list with enemy positions, creates new enemies, saves them to the corresponding \char`\"{}enemies\char`\"{} list. \mbox{\Hypertarget{classGeus_af62245e002ed29f52e4ffff6372f4da9}\label{classGeus_af62245e002ed29f52e4ffff6372f4da9}} 
+\index{Geus@{Geus}!play@{play}}
+\index{play@{play}!Geus@{Geus}}
+\subsubsection{\texorpdfstring{play()}{play()}}
+{\footnotesize\ttfamily int Geus\+::play (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Begins the game and contains the main (only) game loop \mbox{\Hypertarget{classGeus_a9543c5d421c0a5926bfb16d59bbcab12}\label{classGeus_a9543c5d421c0a5926bfb16d59bbcab12}} 
+\index{Geus@{Geus}!random\+Drop\+Power\+Up@{random\+Drop\+Power\+Up}}
+\index{random\+Drop\+Power\+Up@{random\+Drop\+Power\+Up}!Geus@{Geus}}
+\subsubsection{\texorpdfstring{random\+Drop\+Power\+Up()}{randomDropPowerUp()}}
+{\footnotesize\ttfamily void Geus\+::random\+Drop\+Power\+Up (\begin{DoxyParamCaption}\item[{const int}]{pos\+\_\+x,  }\item[{const int}]{pos\+\_\+y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Drops a random power-\/up based on hardcoded probability. 
+
+Whenever it\textquotesingle{}s called, it generates a number and checks whether it\textquotesingle{}s a zero. If it is a zero, it continues and generates another number with a number of power-\/up to be dropped.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos\+\_\+x} & Position on X axis of the eventually dropped power-\/up \\
+\hline
+{\em pos\+\_\+y} & Position on Y axis of the eventually dropped power-\/up \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGeus_ac39cd26c767b6508030a3a203de80ade}\label{classGeus_ac39cd26c767b6508030a3a203de80ade}} 
+\index{Geus@{Geus}!save\+Highest\+Score@{save\+Highest\+Score}}
+\index{save\+Highest\+Score@{save\+Highest\+Score}!Geus@{Geus}}
+\subsubsection{\texorpdfstring{save\+Highest\+Score()}{saveHighestScore()}}
+{\footnotesize\ttfamily void Geus\+::save\+Highest\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Saves the current score as the new Highest Score to a hardcoded file. 
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classGeus_a48aec553db9de3be3f1cbf0a8d14a1c8}\label{classGeus_a48aec553db9de3be3f1cbf0a8d14a1c8}} 
+\index{Geus@{Geus}!bullets@{bullets}}
+\index{bullets@{bullets}!Geus@{Geus}}
+\subsubsection{\texorpdfstring{bullets}{bullets}}
+{\footnotesize\ttfamily std\+::list$<$\hyperlink{classSprite}{Sprite}$\ast$$>$ Geus\+::bullets\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+List with pointers to all visible bullets. 
+
+\mbox{\Hypertarget{classGeus_a182b15c0dcf2def10eb8f084b4e6ce4f}\label{classGeus_a182b15c0dcf2def10eb8f084b4e6ce4f}} 
+\index{Geus@{Geus}!enemies@{enemies}}
+\index{enemies@{enemies}!Geus@{Geus}}
+\subsubsection{\texorpdfstring{enemies}{enemies}}
+{\footnotesize\ttfamily std\+::list$<$\hyperlink{classSprite}{Sprite}$\ast$$>$ Geus\+::enemies\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+List with pointers to all visible enemies. 
+
+\mbox{\Hypertarget{classGeus_a2ecbe7a824604651a704e0fff0a5c839}\label{classGeus_a2ecbe7a824604651a704e0fff0a5c839}} 
+\index{Geus@{Geus}!enemy\+\_\+positions@{enemy\+\_\+positions}}
+\index{enemy\+\_\+positions@{enemy\+\_\+positions}!Geus@{Geus}}
+\subsubsection{\texorpdfstring{enemy\+\_\+positions}{enemy\_positions}}
+{\footnotesize\ttfamily std\+::list$<$int$>$ Geus\+::enemy\+\_\+positions\hspace{0.3cm}{\ttfamily [private]}}
+
+List with enemy positions on the X axis. Number \char`\"{}-\/1\char`\"{} serves purpose as a newline It gets populated at the beginning of the game from a file. \mbox{\Hypertarget{classGeus_a8b87135ab61453d81b02b97d73033c92}\label{classGeus_a8b87135ab61453d81b02b97d73033c92}} 
+\index{Geus@{Geus}!engine@{engine}}
+\index{engine@{engine}!Geus@{Geus}}
+\subsubsection{\texorpdfstring{engine}{engine}}
+{\footnotesize\ttfamily \hyperlink{classEngineWrapper}{Engine\+Wrapper} Geus\+::engine\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Instance of the engine. 
+
+\mbox{\Hypertarget{classGeus_a8b9366af73b19d4c2383b42e8c5cae7f}\label{classGeus_a8b9366af73b19d4c2383b42e8c5cae7f}} 
+\index{Geus@{Geus}!highest\+\_\+score@{highest\+\_\+score}}
+\index{highest\+\_\+score@{highest\+\_\+score}!Geus@{Geus}}
+\subsubsection{\texorpdfstring{highest\+\_\+score}{highest\_score}}
+{\footnotesize\ttfamily int Geus\+::highest\+\_\+score\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Highest score loaded from a file. 
+
+\mbox{\Hypertarget{classGeus_aeb4cc6648c47d83e07340b39c85b62b3}\label{classGeus_aeb4cc6648c47d83e07340b39c85b62b3}} 
+\index{Geus@{Geus}!is\+\_\+running@{is\+\_\+running}}
+\index{is\+\_\+running@{is\+\_\+running}!Geus@{Geus}}
+\subsubsection{\texorpdfstring{is\+\_\+running}{is\_running}}
+{\footnotesize\ttfamily bool Geus\+::is\+\_\+running\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A boolean variable controlling the main game loop. 
+
+\mbox{\Hypertarget{classGeus_a19106a3619fcb55de45bc8adac57496a}\label{classGeus_a19106a3619fcb55de45bc8adac57496a}} 
+\index{Geus@{Geus}!player@{player}}
+\index{player@{player}!Geus@{Geus}}
+\subsubsection{\texorpdfstring{player}{player}}
+{\footnotesize\ttfamily \hyperlink{classPlayer}{Player}$\ast$ Geus\+::player = N\+U\+LL\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Single instance of the player\textquotesingle{}s object. 
+
+\mbox{\Hypertarget{classGeus_a797d5c7822b9b1e1eb6c46fca93551a3}\label{classGeus_a797d5c7822b9b1e1eb6c46fca93551a3}} 
+\index{Geus@{Geus}!power\+\_\+ups@{power\+\_\+ups}}
+\index{power\+\_\+ups@{power\+\_\+ups}!Geus@{Geus}}
+\subsubsection{\texorpdfstring{power\+\_\+ups}{power\_ups}}
+{\footnotesize\ttfamily std\+::list$<$\hyperlink{classCPowerUp}{C\+Power\+Up}$\ast$$>$ Geus\+::power\+\_\+ups\hspace{0.3cm}{\ttfamily [private]}}
+
+List with pointers to all visible power\+\_\+ups \begin{DoxyNote}{Note}
+For some reason it couldn\textquotesingle{}t be a general Sprite$\ast$ type because of it\textquotesingle{}s own additional member functions. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classGeus_a2ad271a665a5442697299b756cfee290}\label{classGeus_a2ad271a665a5442697299b756cfee290}} 
+\index{Geus@{Geus}!score@{score}}
+\index{score@{score}!Geus@{Geus}}
+\subsubsection{\texorpdfstring{score}{score}}
+{\footnotesize\ttfamily int Geus\+::score\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Current score. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{geus_8h}{geus.\+h}\item 
+\hyperlink{geus_8cpp}{geus.\+cpp}\end{DoxyCompactItemize}

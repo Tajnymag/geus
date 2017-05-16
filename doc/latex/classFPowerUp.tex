@@ -1,0 +1,95 @@
+\hypertarget{classFPowerUp}{}\section{F\+Power\+Up Class Reference}
+\label{classFPowerUp}\index{F\+Power\+Up@{F\+Power\+Up}}
+
+
+{\ttfamily \#include $<$power\+\_\+ups.\+h$>$}
+
+
+
+Inheritance diagram for F\+Power\+Up\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=147pt]{classFPowerUp__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for F\+Power\+Up\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=147pt]{classFPowerUp__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classFPowerUp_a7377a01b8c39b7342fdb457e6635833c}{F\+Power\+Up} (const int pos\+\_\+x, const int pos\+\_\+y)
+\item 
+\hyperlink{classFPowerUp_aa062fd6a8f23d57dcb4e282583f3bfc8}{$\sim$\+F\+Power\+Up} ()
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+void \hyperlink{classFPowerUp_aaf83782b032f53dacd37650127595148}{draw} (const int timer)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+This header file hosts all of the power-\/ups at the same time. I did it because of how small the differences between the power-\/ups are.
+
+\hyperlink{classCPowerUp}{C\+Power\+Up} acts as the parent\textquotesingle{}s class. It inherits directly from \hyperlink{classSprite}{Sprite}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classFPowerUp_a7377a01b8c39b7342fdb457e6635833c}\label{classFPowerUp_a7377a01b8c39b7342fdb457e6635833c}} 
+\index{F\+Power\+Up@{F\+Power\+Up}!F\+Power\+Up@{F\+Power\+Up}}
+\index{F\+Power\+Up@{F\+Power\+Up}!F\+Power\+Up@{F\+Power\+Up}}
+\subsubsection{\texorpdfstring{F\+Power\+Up()}{FPowerUp()}}
+{\footnotesize\ttfamily F\+Power\+Up\+::\+F\+Power\+Up (\begin{DoxyParamCaption}\item[{const int}]{pos\+\_\+x,  }\item[{const int}]{pos\+\_\+y }\end{DoxyParamCaption})}
+
+Creates a new instance of a Fast-\/\+Bullet power-\/up and sets it\textquotesingle{}s own index.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos\+\_\+x} & Point on the X axis where the power-\/up should be placed \\
+\hline
+{\em pos\+\_\+y} & Point on the Y axis where the power-\/up should be placed \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFPowerUp_aa062fd6a8f23d57dcb4e282583f3bfc8}\label{classFPowerUp_aa062fd6a8f23d57dcb4e282583f3bfc8}} 
+\index{F\+Power\+Up@{F\+Power\+Up}!````~F\+Power\+Up@{$\sim$\+F\+Power\+Up}}
+\index{````~F\+Power\+Up@{$\sim$\+F\+Power\+Up}!F\+Power\+Up@{F\+Power\+Up}}
+\subsubsection{\texorpdfstring{$\sim$\+F\+Power\+Up()}{~FPowerUp()}}
+{\footnotesize\ttfamily F\+Power\+Up\+::$\sim$\+F\+Power\+Up (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default destructor. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classFPowerUp_aaf83782b032f53dacd37650127595148}\label{classFPowerUp_aaf83782b032f53dacd37650127595148}} 
+\index{F\+Power\+Up@{F\+Power\+Up}!draw@{draw}}
+\index{draw@{draw}!F\+Power\+Up@{F\+Power\+Up}}
+\subsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void F\+Power\+Up\+::draw (\begin{DoxyParamCaption}\item[{const int}]{timer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Draws itself on the standard screen. It\textquotesingle{}s overriden because of the different hardcoded color and character it uses as identification.
+
+
+\begin{DoxyParams}{Parameters}
+{\em timer} & Current state of the game\textquotesingle{}s timer. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classCPowerUp_af1e0bad769efcde21858144596212e01}{C\+Power\+Up}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{power__ups_8h}{power\+\_\+ups.\+h}\item 
+\hyperlink{power__ups_8cpp}{power\+\_\+ups.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,11 @@
+<map id="Sprite" name="Sprite">
+<area shape="rect" id="node2" href="$classBullet.html" title="Bullet" alt="" coords="133,80,193,107"/>
+<area shape="rect" id="node5" href="$classCPowerUp.html" title="CPowerUp" alt="" coords="292,80,381,107"/>
+<area shape="rect" id="node9" href="$classEnemy.html" title="Enemy" alt="" coords="406,80,473,107"/>
+<area shape="rect" id="node10" href="$classPlayer.html" title="Player" alt="" coords="497,80,560,107"/>
+<area shape="rect" id="node3" href="$classFastBullet.html" title="FastBullet" alt="" coords="5,155,92,181"/>
+<area shape="rect" id="node4" href="$classHugeBullet.html" title="HugeBullet" alt="" coords="116,155,211,181"/>
+<area shape="rect" id="node6" href="$classFPowerUp.html" title="FPowerUp" alt="" coords="235,155,321,181"/>
+<area shape="rect" id="node7" href="$classHBPowerUp.html" title="HBPowerUp" alt="" coords="346,155,445,181"/>
+<area shape="rect" id="node8" href="$classTriPowerUp.html" title="TriPowerUp" alt="" coords="469,155,567,181"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="HugeBullet" name="HugeBullet">
+<area shape="rect" id="node2" href="$classBullet.html" title="Bullet" alt="" coords="23,80,83,107"/>
+<area shape="rect" id="node3" href="$classSprite.html" title="Sprite" alt="" coords="23,5,83,32"/>
+</map>

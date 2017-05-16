@@ -1,0 +1,126 @@
+\hypertarget{classCPowerUp}{}\section{C\+Power\+Up Class Reference}
+\label{classCPowerUp}\index{C\+Power\+Up@{C\+Power\+Up}}
+
+
+{\ttfamily \#include $<$power\+\_\+ups.\+h$>$}
+
+
+
+Inheritance diagram for C\+Power\+Up\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=329pt]{classCPowerUp__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for C\+Power\+Up\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=147pt]{classCPowerUp__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classCPowerUp_ab7f897c487e77f7bbe41af2d0e15ddd4}{C\+Power\+Up} (const int pos\+\_\+x, const int pos\+\_\+y)
+\item 
+virtual \hyperlink{classCPowerUp_a7c76b245e1c5969add6f8721587817a3}{$\sim$\+C\+Power\+Up} ()
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+int \hyperlink{classCPowerUp_ac934e9e2bebc680caf63c125f75178a8}{get\+Index} () const
+\begin{DoxyCompactList}\small\item\em Returns it\textquotesingle{}s own index. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classCPowerUp_af1e0bad769efcde21858144596212e01}{draw} (const int timer)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classCPowerUp_aa8b01cf91f7b24d6d555ae32071bb3bc}{m\+\_\+powerup\+\_\+index}
+\begin{DoxyCompactList}\small\item\em Index of the power-\/up. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classCPowerUp_ab7f897c487e77f7bbe41af2d0e15ddd4}\label{classCPowerUp_ab7f897c487e77f7bbe41af2d0e15ddd4}} 
+\index{C\+Power\+Up@{C\+Power\+Up}!C\+Power\+Up@{C\+Power\+Up}}
+\index{C\+Power\+Up@{C\+Power\+Up}!C\+Power\+Up@{C\+Power\+Up}}
+\subsubsection{\texorpdfstring{C\+Power\+Up()}{CPowerUp()}}
+{\footnotesize\ttfamily C\+Power\+Up\+::\+C\+Power\+Up (\begin{DoxyParamCaption}\item[{const int}]{pos\+\_\+x,  }\item[{const int}]{pos\+\_\+y }\end{DoxyParamCaption})}
+
+Creates a new instance of a basic power-\/up and sets it\textquotesingle{}s own index.
+
+\begin{DoxyNote}{Note}
+It\textquotesingle{}s not really logical, but this power-\/up acts as a \char`\"{}power-\/down\char`\"{}. It\textquotesingle{}s the default shooting method player uses from the beginning. So it\textquotesingle{}s quite slow and shoots only basic bullets.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em pos\+\_\+x} & Point on the X axis where the power-\/up should be placed \\
+\hline
+{\em pos\+\_\+y} & Point on the Y axis where the power-\/up should be placed \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCPowerUp_a7c76b245e1c5969add6f8721587817a3}\label{classCPowerUp_a7c76b245e1c5969add6f8721587817a3}} 
+\index{C\+Power\+Up@{C\+Power\+Up}!````~C\+Power\+Up@{$\sim$\+C\+Power\+Up}}
+\index{````~C\+Power\+Up@{$\sim$\+C\+Power\+Up}!C\+Power\+Up@{C\+Power\+Up}}
+\subsubsection{\texorpdfstring{$\sim$\+C\+Power\+Up()}{~CPowerUp()}}
+{\footnotesize\ttfamily C\+Power\+Up\+::$\sim$\+C\+Power\+Up (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Default destructor. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classCPowerUp_af1e0bad769efcde21858144596212e01}\label{classCPowerUp_af1e0bad769efcde21858144596212e01}} 
+\index{C\+Power\+Up@{C\+Power\+Up}!draw@{draw}}
+\index{draw@{draw}!C\+Power\+Up@{C\+Power\+Up}}
+\subsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void C\+Power\+Up\+::draw (\begin{DoxyParamCaption}\item[{const int}]{timer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Draws itself on the standard screen. It\textquotesingle{}s overriden because of the different hardcoded color and character it uses as identification.
+
+
+\begin{DoxyParams}{Parameters}
+{\em timer} & Current state of the game\textquotesingle{}s timer. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classSprite_aa41512617e8a1626bade15cbbdfb3f79}{Sprite}.
+
+
+
+Reimplemented in \hyperlink{classFPowerUp_aaf83782b032f53dacd37650127595148}{F\+Power\+Up}, \hyperlink{classHBPowerUp_ac9fcb7d3ef5f3a0561ffe0b6689944a1}{H\+B\+Power\+Up}, and \hyperlink{classTriPowerUp_a06af18b739589c56a90da91716243acf}{Tri\+Power\+Up}.
+
+\mbox{\Hypertarget{classCPowerUp_ac934e9e2bebc680caf63c125f75178a8}\label{classCPowerUp_ac934e9e2bebc680caf63c125f75178a8}} 
+\index{C\+Power\+Up@{C\+Power\+Up}!get\+Index@{get\+Index}}
+\index{get\+Index@{get\+Index}!C\+Power\+Up@{C\+Power\+Up}}
+\subsubsection{\texorpdfstring{get\+Index()}{getIndex()}}
+{\footnotesize\ttfamily int C\+Power\+Up\+::get\+Index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns it\textquotesingle{}s own index. 
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classCPowerUp_aa8b01cf91f7b24d6d555ae32071bb3bc}\label{classCPowerUp_aa8b01cf91f7b24d6d555ae32071bb3bc}} 
+\index{C\+Power\+Up@{C\+Power\+Up}!m\+\_\+powerup\+\_\+index@{m\+\_\+powerup\+\_\+index}}
+\index{m\+\_\+powerup\+\_\+index@{m\+\_\+powerup\+\_\+index}!C\+Power\+Up@{C\+Power\+Up}}
+\subsubsection{\texorpdfstring{m\+\_\+powerup\+\_\+index}{m\_powerup\_index}}
+{\footnotesize\ttfamily int C\+Power\+Up\+::m\+\_\+powerup\+\_\+index\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Index of the power-\/up. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{power__ups_8h}{power\+\_\+ups.\+h}\item 
+\hyperlink{power__ups_8cpp}{power\+\_\+ups.\+cpp}\end{DoxyCompactItemize}
