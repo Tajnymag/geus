@@ -1,4 +1,4 @@
-BINARY = lukasma5
+BINARY = geus
 CC = g++
 CFLAGS = -Wall -pedantic -Wno-long-long -O0 -ggdb -std=c++11
 LIBS = -lncurses
